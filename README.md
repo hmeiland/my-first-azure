@@ -1,2 +1,2 @@
-# my-fist-azure
+# my-first-azure
 first steps in azure
