@@ -28,8 +28,12 @@ fi
 CORES=`cat /proc/cpuinfo | grep processor | wc -l`
 MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | uniq | awk '{ print $4}'`
 echo "I see $CORES cores, each running at $MHZ MHz"
-FLOPS=`echo "scale=0; (1000 *( $CORES * $MHZ * $OPS ) )/1000" | bc`
-echo "so the theoretical peak performance will be $FLOPS"
+SOCKET=`lscpu | grep "Socket(s):" | awk '{print $2}'`
+CPS=`lscpu | grep "Core(s) per socket:" | awk '{print $4}'`
+REAL_CORES=`echo "scale=0; $SOCKET * $CPS" | bc`
+FLOPS=`echo "scale=0; (1000 *( $REAL_CORES * $MHZ * $OPS ) )/1000" | bc`
+echo "but I do not trust the OS, looks more like $REAL_CORES real cores" 
+echo "so the theoretical peak performance will be $FLOPS GFLOPS"
 
 
 echo "for this cpu, the best NB = $NB"
@@ -83,4 +87,4 @@ $NB          NBs
 EOF
 cp /opt/intel/compilers_and_libraries/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static .
 echo "I'm done building the HPL.dat (and copied the benchmark locally)"
-
+echo "you can just start with ./xhpl_intel64_static; have fun!"
