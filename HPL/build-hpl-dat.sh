@@ -31,9 +31,9 @@ echo "I see $CORES cores, each running at $MHZ MHz"
 SOCKET=`lscpu | grep "Socket(s):" | awk '{print $2}'`
 CPS=`lscpu | grep "Core(s) per socket:" | awk '{print $4}'`
 REAL_CORES=`echo "scale=0; $SOCKET * $CPS" | bc`
-FLOPS=`echo "scale=0; (1000 *( $REAL_CORES * $MHZ * $OPS ) )/1000" | bc`
+FLOPS=`echo "scale=0; (1 *( $REAL_CORES * $MHZ * $OPS ) )/1000" | bc`
 echo "but I do not trust the OS, looks more like $REAL_CORES real cores" 
-echo "so the theoretical peak performance will be $FLOPS GFLOPS"
+echo "so the theoretical peak performance will be around $FLOPS GFLOPS"
 
 
 echo "for this cpu, the best NB = $NB"
