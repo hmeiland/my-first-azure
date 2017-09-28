@@ -26,6 +26,7 @@ ARCH_SELECTED=ALL
 EOF
 sudo ./install.sh --silent ./my.silent.cfg
 cd ..
+rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
 
 echo "downloading and installing Intel MKL"
 wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12070/l_mkl_2018.0.128.tgz
@@ -55,3 +56,4 @@ ARCH_SELECTED=ALL
 EOF
 sudo ./install.sh --silent ./my.silent.cfg
 cd ..
+rm -rf l_mkl_2018.0.128 l_mkl_2018.0.128.tgz
