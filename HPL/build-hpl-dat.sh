@@ -71,5 +71,6 @@ $NB          NBs
 0            Equilibration (0=no,1=yes)
 8            memory alignment in double (> 0)
 EOF
-echo "I'm done building the HPL.dat"
+cp /opt/intel/compilers_and_libraries/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static .
+echo "I'm done building the HPL.dat (and copied the benchmark locally)"
 
