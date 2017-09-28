@@ -18,10 +18,20 @@ CPU=`cat /proc/cpuinfo  | grep "model name" | uniq | awk '{ $1=""; $2=""; $3="";
 echo "I've found this cpu: $CPU"
 if [[ $CPU =~ "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz" ]] ; then
   NB=192
+  OPS=16
 fi
 if [[ $CPU =~ "Intel(R) Core(TM) i7-6650U CPU @ 2.20GHz" ]] ; then
   NB=192
+  OPS=16
 fi
+
+CORES=`cat /proc/cpuinfo | grep processor | wc -l`
+MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | uniq | awk '{ print $4}'`
+echo "I see $CORES cores, each running at $MHZ MHz"
+FLOPS=`echo "scale=0; (1000 *( $CORES * $MHZ * $OPS ) )/1000" | bc`
+echo "so the theoretical peak performance will be $FLOPS"
+
+
 echo "for this cpu, the best NB = $NB"
 
 # find amount of real memory
