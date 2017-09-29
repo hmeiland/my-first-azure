@@ -1,6 +1,6 @@
-echo "downloading and installing Intel MPI"
-wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
-tar zxvf l_mpi_2018.0.128.tgz
+echo "downloading and unpacking Intel MPI"
+wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
+tar zxf l_mpi_2018.0.128.tgz
 cd l_mpi_2018.0.128
 cat >> my.silent.cfg << EOF
 # Accept EULA, valid values are: {accept, decline}
@@ -24,13 +24,14 @@ SIGNING_ENABLED=yes
 # Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
 ARCH_SELECTED=ALL
 EOF
+echo "installing Intel MPI..."
 sudo ./install.sh --silent ./my.silent.cfg
 cd ..
 rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
 
-echo "downloading and installing Intel MKL"
-wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12070/l_mkl_2018.0.128.tgz
-tar zxvf l_mkl_2018.0.128.tgz
+echo "downloading and unpacking Intel MKL"
+wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12070/l_mkl_2018.0.128.tgz
+tar zxf l_mkl_2018.0.128.tgz
 cd l_mkl_2018.0.128
 cat >> my.silent.cfg << EOF
 # Accept EULA, valid values are: {accept, decline}
@@ -54,6 +55,7 @@ SIGNING_ENABLED=yes
 # Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
 ARCH_SELECTED=ALL
 EOF
+echo "installing Intel MKL..."
 sudo ./install.sh --silent ./my.silent.cfg
 cd ..
 rm -rf l_mkl_2018.0.128 l_mkl_2018.0.128.tgz
