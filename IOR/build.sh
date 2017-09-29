@@ -36,7 +36,7 @@ echo "cloning and building IOR..."
 #git clone https://github.com/hmeiland/ior
 #cd ior
 #./bootstrap.sh
-. /compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh
+. /opt/intel/compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh
 echo "you can now run with:"
 echo "mpirun ./bin/ior -f ior-script.txt"
 
