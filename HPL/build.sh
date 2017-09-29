@@ -77,6 +77,7 @@ CPU=`cat /proc/cpuinfo  | grep "model name" | uniq | awk '{ $1=""; $2=""; $3="";
 #         (Intel(R) AVX-512) (codename Skylake Server)                         : 384
 #
 echo "I've found this cpu: $CPU"
+NB=192; OPS=16;
 if [[ $CPU =~ "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz" ]] ; then
   NB=192
   OPS=16
