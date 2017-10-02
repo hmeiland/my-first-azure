@@ -1,8 +1,11 @@
-echo "downloading and unpacking Intel MPI"
-wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
-tar zxf l_mpi_2018.0.128.tgz
-cd l_mpi_2018.0.128
-cat >> my.silent.cfg << EOF
+
+if [ ! -e /opt/intel/compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh ]
+then
+  echo "downloading and unpacking Intel MPI"
+  wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
+  tar zxf l_mpi_2018.0.128.tgz
+  cd l_mpi_2018.0.128
+  cat >> my.silent.cfg << EOF
 # Accept EULA, valid values are: {accept, decline}
 ACCEPT_EULA=accept
 # Optional error behavior, valid values are: {yes, no}
@@ -24,11 +27,11 @@ SIGNING_ENABLED=yes
 # Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
 ARCH_SELECTED=ALL
 EOF
-echo "installing Intel MPI..."
-sudo ./install.sh --silent ./my.silent.cfg
-cd ..
-rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
-
+  echo "installing Intel MPI..."
+  sudo ./install.sh --silent ./my.silent.cfg
+  cd ..
+  rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
+fi
 
 if [ ! -e /opt/intel/compilers_and_libraries/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static ]
 then 
