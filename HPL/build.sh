@@ -89,7 +89,7 @@ if [[ $CPU =~ "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz" ]] ; then
   NB=192
   OPS=16
 fi
-if [[ $CPU =~ "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz " ]] ; then
+if [[ $CPU =~ "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz" ]] ; then
   NB=192
   OPS=8
 fi
