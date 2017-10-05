@@ -33,7 +33,7 @@ EOF
   rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
 fi
 
-if [ ! -e /opt/intel/compilers_and_libraries/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static ]
+if [ ! -e /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static ]
 then 
   echo "downloading and unpacking Intel MKL"
   wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12070/l_mkl_2018.0.128.tgz
