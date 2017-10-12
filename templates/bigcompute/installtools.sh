@@ -7,8 +7,6 @@
 #
 ###############################################################################
 
-exit 0
-#Hugo
 
 if [[ $(id -u) -ne 0 ]] ; then
     echo "Must be run as root"
@@ -17,18 +15,23 @@ fi
 
 ADMIN=$1
 
-export DEBIAN_FRONTEND=noninteractive
+#export DEBIAN_FRONTEND=noninteractive
 echo "* hard memlock unlimited" >> /etc/security/limits.conf
 echo "* soft memlock unlimited" >> /etc/security/limits.conf
-apt-get -y update
+#apt-get -y update
 #apt-get -y upgrade
 
 # Install dev & sysadmin tools
-sudo apt-get install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
+#sudo apt-get install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
+sudo yum install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
 pip3 install --upgrade pip
 pip3 install wheel
-apt-get install -y redis-tools
+#apt-get install -y redis-tools
+yum install -y redis-tools
 echo "##############################################################################"
+
+exit 0
+
 
 # Install azure-cli
 # https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
