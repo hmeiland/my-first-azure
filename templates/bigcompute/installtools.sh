@@ -23,7 +23,7 @@ echo "* soft memlock unlimited" >> /etc/security/limits.conf
 
 # Install dev & sysadmin tools
 #sudo apt-get install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
-sudo yum install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
+yum install -y build-essential g++ git gcc make cmake htop autotools-dev libicu-dev libbz2-dev libboost-all-dev libssl-dev libffi-dev libpython-dev python-dev python-pip pip python3-pip zip
 pip3 install --upgrade pip
 pip3 install wheel
 #apt-get install -y redis-tools
