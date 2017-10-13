@@ -159,5 +159,6 @@ $NB          NBs
 8            memory alignment in double (> 0)
 EOF
 cp /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/benchmarks/mp_linpack/xhpl_intel64_static .
+. /opt/intel/compilers_and_libraries_2018.0.128/linux/bin/compilervars_global.sh -arch intel64 -platform linux
 echo "I'm done building the HPL.dat (and copied the benchmark locally)"
 echo "you can just start with ./xhpl_intel64_static; have fun!"
