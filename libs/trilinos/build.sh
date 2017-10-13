@@ -1,6 +1,6 @@
 
 
-wget http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+wget --no-check-certificate http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
 tar xfj trilinos-11.12.1-Source.tar.bz2
 
 CC=`which icc` FC=`which ifort` CXX=`which icpc` cmake \
