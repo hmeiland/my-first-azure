@@ -23,6 +23,6 @@ CC=`which icc` FC=`which ifort` CXX=`which icpc` cmake \
 -D CMAKE_INSTALL_PREFIX=~/trilinos-11.12.1 \
 ./trilinos-11.12.1-Source
 
-make 
+make -j8 
 #$ make -j8 install
 
