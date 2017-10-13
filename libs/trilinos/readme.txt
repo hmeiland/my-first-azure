@@ -9,4 +9,7 @@ https://pleiades.ucsc.edu/hyades/Trilinos
 
 using the ucsc doc as a baseline to build the libs...
 
+source ./env.sh
+CC=icc FC=ifort
+
 

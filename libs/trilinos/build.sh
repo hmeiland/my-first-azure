@@ -1,12 +1,9 @@
 
-#wget http://trilinos.csbsju.edu/download/files/trilinos-12.12.1-Source.tar.gz
 
+wget http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+tar xfj trilinos-11.12.1-Source.tar.bz2
 
-$ cd /scratch
-$ wget http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
-$ tar xvfj trilinos-11.12.1-Source.tar.bz2
-
-$ cmake \
+CC=`which icc` FC=`which ifort` CXX=`which icpc` cmake \
 -D CMAKE_CXX_FLAGS:STRING=" -DMPICH_IGNORE_CXX_SEEK -DMPICH_SKIP_MPICXX" \
 -D CMAKE_BUILD_TYPE:STRING=RELEASE \
 -D CMAKE_VERBOSE_MAKEFILE:BOOL=ON \
@@ -23,8 +20,9 @@ $ cmake \
 -D BLAS_LIBRARY_NAMES:STRING="mkl_intel_lp64;mkl_core;mkl_sequential" \
 -D LAPACK_LIBRARY_NAMES:STRING="mkl_intel_lp64;mkl_core;mkl_sequential" \
 -D BUILD_SHARED_LIBS:BOOL=ON \
--D CMAKE_INSTALL_PREFIX=/pfs/sw/parallel/impi_intel/trilinos-11.12.1 \
-/scratch/trilinos-11.12.1-Source
+-D CMAKE_INSTALL_PREFIX=~/trilinos-11.12.1 \
+./trilinos-11.12.1-Source
 
-$ make -j8 install
+make 
+#$ make -j8 install
 
