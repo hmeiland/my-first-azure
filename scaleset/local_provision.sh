@@ -7,6 +7,7 @@ git clone https://github.com/hmeiland/my-first-azure
 cd my-first-azure/HPL
 
 echo "source ~/my-first-azure/HPL/env.sh" >> /etc/bashrc
+echo "export I_MPI_FABRICS=dapl I_MPI_DAPL_PROVIDER=ofa-v2-ib0 I_MPI_DYNAMIC_CONNECTION=0" >> /etc/bashrc
 
 if [ `hostname -s` == "node1" ]; then
 
