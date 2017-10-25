@@ -1,7 +1,8 @@
-echo "downloading and installing Intel MPI"
-wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
-tar zxf l_mpi_2018.0.128.tgz
-cd l_mpi_2018.0.128
+if [ ! -e /opt/intel/compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh ]                                                                          then         
+  echo "downloading and installing Intel MPI"
+  wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
+  tar zxf l_mpi_2018.0.128.tgz
+  cd l_mpi_2018.0.128
 cat >> my.silent.cfg << EOF
 # Accept EULA, valid values are: {accept, decline}
 ACCEPT_EULA=accept
@@ -24,10 +25,10 @@ SIGNING_ENABLED=yes
 # Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
 ARCH_SELECTED=ALL
 EOF
-sudo ./install.sh --silent ./my.silent.cfg
-cd ..
-rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
-
+  sudo ./install.sh --silent ./my.silent.cfg
+  cd ..
+  rm -rf l_mpi_2018.0.128 l_mpi_2018.0.128.tgz
+fi
 #wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12058/parallel_studio_xe_2018_cluster_edition.tgz
 
 
