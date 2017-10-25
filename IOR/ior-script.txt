@@ -4,8 +4,8 @@ IOR START
   filePerProc=1
   api=POSIX
   useO_DIRECT=0
-  blockSize=1G
-  transferSize=2M
+  blockSize=4G
+  transferSize=1M
   repetitions=1
   verbose=2
 RUN
