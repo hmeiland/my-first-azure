@@ -3,8 +3,8 @@ IOR START
   testFile = /mnt/resource/testfile
   filePerProc=1
   api=POSIX
-  useO_DIRECT=0
-  blockSize=4G
+  useO_DIRECT=1
+  blockSize=2G
   transferSize=1M
   repetitions=1
   verbose=2
