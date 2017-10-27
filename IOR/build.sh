@@ -1,4 +1,5 @@
-if [ ! -e /opt/intel/compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh ]                                                                          then         
+if [ ! -e /opt/intel/compilers_and_libraries_2018.0.128/linux/mpi/intel64/bin/mpivars.sh ]
+then         
   echo "downloading and installing Intel MPI"
   wget -q http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12120/l_mpi_2018.0.128.tgz
   tar zxf l_mpi_2018.0.128.tgz
