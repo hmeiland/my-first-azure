@@ -1,1 +1,1 @@
-az group delete -n hpccluster 
+time az group delete -n hpccluster 
