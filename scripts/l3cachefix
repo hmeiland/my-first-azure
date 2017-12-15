@@ -1,0 +1,21 @@
+#!/bin/bash
+THREADS=`lscpu | grep "Thread(s)" | awk '{print $4}'`
+CPUS=`lscpu | grep "CPU(s):" | awk '{print $2}'`
+
+
+if [ "$THREADS" -gt "1" ]; then
+  echo "Hyperthreading is on with $THREADS per Core, total $CPUS cpus found"
+fi
+
+for (( i=0; i<$CPUS; i++ )) ; do
+  echo fixing L3 cache on cpu$i;
+  echo "0" >/proc/sys/kernel/sched_domain/cpu$i/domain0/idle_idx
+  echo "4655" >/proc/sys/kernel/sched_domain/cpu$i/domain0/flags
+done
+
+# ref command:
+#for i in 0 1 2 3 4 5 6 7
+#do
+#echo "0" >/proc/sys/kernel/sched_domain/cpu$i/domain0/idle_idx
+#echo "4655" >/proc/sys/kernel/sched_domain/cpu$i/domain0/flags
+#done
